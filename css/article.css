@@ -1,0 +1,82 @@
+.numbered-headings {
+	counter-reset: heading;
+}
+
+.numbered-headings h2 {
+	counter-reset: subheading;
+}
+
+.numbered-headings h2.zero::before {
+	content: "0) ";
+	counter-reset: heading;
+}
+
+.numbered-headings h2::before {
+	content: counter(heading)") ";
+	counter-increment: heading;
+}
+
+.numbered-headings h3.zero::before {
+	content: counter(heading)".0) ";
+	counter-reset: subheading;
+}
+
+.numbered-headings h3 {
+	counter-reset: sub2heading;
+}
+
+.numbered-headings h3::before {
+	content: counter(heading)"."counter(subheading)") ";
+	counter-increment: subheading;
+}
+
+.numbered-headings h4 {
+	counter-reset: sub3heading;
+}
+
+.numbered-headings h4.zero::before {
+	content: counter(heading)"."counter(subheading)".0) ";
+	counter-reset: sub2heading;
+}
+
+.numbered-headings h4::before {
+	content: counter(heading)"."counter(subheading)"."counter(sub2heading)") ";
+	counter-increment: sub2heading;
+}
+
+.numbered-headings h5 {
+	counter-reset: sub4heading;
+}
+
+.numbered-headings h5.zero::before {
+	content: counter(heading)"."counter(subheading)"."counter(sub2heading)".0) ";
+	counter-reset: sub3heading;
+}
+
+.numbered-headings h5::before {
+	content: counter(heading)"."counter(subheading)"."counter(sub2heading)"."counter(sub3heading)") ";
+	counter-increment: sub3heading;
+}
+
+.numbered-headings h6.zero::before {
+	content: counter(heading)"."counter(subheading)"."counter(sub2heading)"."counter(sub3heading)".0) ";
+	counter-reset: sub4heading;
+}
+
+.numbered-headings h6::before {
+	content: counter(heading)"."counter(subheading)"."counter(sub2heading)"."counter(sub3heading)"."counter(sub4heading)") ";
+	counter-increment: sub4heading;
+}
+
+.numbered-headings ol.contents, .numbered-headings ol.contents ol {
+	counter-reset: item;
+}
+
+.numbered-headings ol.contents li {
+	display: block;
+}
+
+.numbered-headings ol.contents li::before {
+	content: counters(item, ".")") ";
+	counter-increment: item;
+}
